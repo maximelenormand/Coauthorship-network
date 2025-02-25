@@ -1,41 +1,78 @@
-ID,Name,Scholar,Group,W
-0,Maxime Lenormand,VSyM8fEAAAAJ,1,1
-1,Jose J. Ramasco,aEdK_vsAAAAJ,1,1
-2,Thomas Louail,pZAtLJMAAAAJ,1,1
-3,Marc Barthelemy,2UTIVeIAAAAJ,1,1
-4,Oliva García Cantú Ros,p3dQlwgAAAAJ,1,1
-5,Ricardo Herranz,wbmZMFcAAAAJ,1,1
-6,Enrique Frias-Martinez,R3GAd3sAAAAJ,1,1
-7,Sylvie Huet,VO7AEbcAAAAJ,1,1
-8,Guillaume Deffuant,xwYTdNwAAAAJ,1,1
-9,Antonia Tugores,JxoxIlYAAAAJ,1,1
-10,Floriana Gargiulo,L93QaKYAAAAJ,1,1
-11,Maxi San Miguel,AcDm6B0AAAAJ,1,1
-12,Juan Murillo Arias,Aiqh23MAAAAJ,1,1
-13,Bruno Gonçalves,rtKaL18AAAAJ,1,1
-14,Aleix Bassolas,tXaOGyUAAAAJ,1,1
-15,Franck Jabot,4YCAAPYAAAAJ,1,1
-16,Ronaldo Menezes,eHej2g8AAAAJ,1,1
-17,Hugo S. Barbosa,dsBgmWgAAAAJ,1,1
-18,Gourab Ghoshal,_CNYi6MAAAAJ,1,1
-19,Marcello Tomasini,QM5kA_MAAAAJ,1,1
-20,Filippo Simini,7cf56rIAAAAJ,1,1
-21,Pere Colet,7BDoa9YAAAAJ,1,1
-22,Thibaut Dubernet,oP68X_gAAAAJ,1,1
-23,Tomás Ruiz,brVkRxcAAAAJ,1,1
-24,Maria Henar Salas Olmedo,F6Y9PjoAAAAJ,1,1
-25,Fabio Lamanna,QrF76o0AAAAJ,1,1
-26,Gustavo Romanillos Arroyo,eEEgIjIAAAAJ,1,1
-27,Sandra Luque,GtJ4HDAAAAAJ,1,1
-28,Guillaume Papuga,NFHREtgAAAAJ,1,1
-29,Pablo Fleurquin,62yXZkoAAAAJ,1,1
-30,Victor M. Eguiluz,QVPRrksAAAAJ,1,1
-31,Ulrike Tappeiner,lZI5BBIAAAAJ,1,1
-32,Johannes Langemeyer,zOoWBVkAAAAJ,1,1
-33,Juraj Lieskovsky,r5ACMHIAAAAJ,1,1
-34,Uta Schirpke,JTMWeZUAAAAJ,1,1
-35,Inge Aalders,iYztnbEAAAAJ,1,1
-36,Giuca Relu Constantin,GKCZmfQAAAAJ,1,1
-37,Leena Kopperoinen,E6hgxfwAAAAJ,1,1
-38,Eszter Lelleiné Kovács,LwxjifkAAAAJ,1,1
-39,Serban Chivulescu,E_I7icwAAAAJ,1,1
+ID;Name;Scholar;Group;W
+0;Maxime Lenormand;VSyM8fEAAAAJ;1;1
+1;Jose J. Ramasco;aEdK_vsAAAAJ;1;1
+2;Thomas Louail;pZAtLJMAAAAJ;1;1
+3;Marc Barthelemy;2UTIVeIAAAAJ;1;1
+4;Oliva García Cantú Ros;p3dQlwgAAAAJ;1;1
+5;Ricardo Herranz;wbmZMFcAAAAJ;1;1
+6;Enrique Frias-Martinez;R3GAd3sAAAAJ;1;1
+7;Sylvie Huet;VO7AEbcAAAAJ;1;1
+8;Guillaume Deffuant;xwYTdNwAAAAJ;1;1
+9;Antonia Tugores;JxoxIlYAAAAJ;1;1
+10;Floriana Gargiulo;L93QaKYAAAAJ;1;1
+11;Maxi San Miguel;AcDm6B0AAAAJ;1;1
+12;Bruno Gonçalves;rtKaL18AAAAJ;1;1
+13;Aleix Bassolas;tXaOGyUAAAAJ;1;1
+14;Franck Jabot;4YCAAPYAAAAJ;1;1
+15;Ronaldo Menezes;eHej2g8AAAAJ;1;1
+16;Hugo S. Barbosa;dsBgmWgAAAAJ;1;1
+17;Gourab Ghoshal;_CNYi6MAAAAJ;1;1
+18;Marcello Tomasini;QM5kA_MAAAAJ;1;1
+19;Filippo Simini;7cf56rIAAAAJ;1;1
+20;Pere Colet;7BDoa9YAAAAJ;1;1
+21;Thibaut Dubernet;oP68X_gAAAAJ;1;1
+22;Tomás Ruiz;brVkRxcAAAAJ;1;1
+23;Maria Henar Salas Olmedo;F6Y9PjoAAAAJ;1;1
+24;Fabio Lamanna;QrF76o0AAAAJ;1;1
+25;Gustavo Romanillos Arroyo;eEEgIjIAAAAJ;1;1
+26;Sandra Luque;GtJ4HDAAAAAJ;1;1
+27;Guillaume Papuga;NFHREtgAAAAJ;1;1
+28;Pablo Fleurquin;62yXZkoAAAAJ;1;1
+29;Victor M. Eguiluz;QVPRrksAAAAJ;1;1
+30;Ulrike Tappeiner;lZI5BBIAAAAJ;1;1
+31;Johannes Langemeyer;zOoWBVkAAAAJ;1;1
+32;Juraj Lieskovsky;r5ACMHIAAAAJ;1;1
+33;Uta Schirpke;JTMWeZUAAAAJ;1;1
+34;Inge Aalders;iYztnbEAAAAJ;1;1
+35;Giuca Relu Constantin;GKCZmfQAAAAJ;1;1
+36;Leena Kopperoinen;E6hgxfwAAAAJ;1;1
+37;Eszter Lelleiné Kovács;LwxjifkAAAAJ;1;1
+38;Serban Chivulescu;E_I7icwAAAAJ;1;1
+39;Jiska van Dijk;3ierTUEAAAAJ;1;1
+40;Mattia Mazzoli;hYLrD30AAAAJ;1;1
+41;Andrea Apolloni;OfFpkm0AAAAJ;1;1
+42;Renaud Lancelot;OlTcOW4AAAAJ;1;1
+43;Camille Jahel;nIJPPHMAAAAJ;1;1
+44;Riccardo Gallotti;3XaGvR0AAAAJ;1;1
+45;Alexandre G. Evsukoff;4iVcAkgAAAAJ;1;1
+46;Horacio Samaniego;VeJEo1AAAAAJ;1;1
+47;Yuna Chiffoleau;SOe23r4AAAAJ;1;1
+48;Olivier Billaud;C5sgahgAAAAJ;1;1
+49;Alex Molas Martin;2FccG04AAAAJ;1;1
+50;Charlotte James;UbmhyYYAAAAJ;1;1
+51;Maxence Soubeyrand;tAPNCJQAAAAJ;1;1
+52;Nicolas Dubos;R7md47gAAAAJ;1;1
+53;Pierre Denelle;x66knTsAAAAJ;1;1
+54;Vinícius da Fonseca Vieira;gp3dwOYAAAAJ;1;1
+55;Clémentine Préau;Bp6ocmIAAAAJ;1;1
+56;Philip K. Roche;H6i6i7QAAAAJ;1;1
+57;Sophie Monsarrat;pIcw2pYAAAAJ;1;1
+58;Julien Cappelle;HahwWlwAAAAJ;1;1
+59;Annelise Tran;5TvOVpkAAAAJ;1;1
+60;Alexandre Caron;H4iaWJoAAAAJ;1;1
+61;François Roger;wa5soqQAAAAJ;1;1
+62;Julie Vallée;9EGDYm0AAAAJ;1;1
+63;Marine Le Louarn;uEN2EUEAAAAJ;1;1
+64;Samuel Alleaume;MiYK27AAAAAJ;1;1
+65;Roel May;2bKrFKIAAAAJ;1;1
+66;Antoine Guisan;89DB5TMAAAAJ;1;1
+67;Leandro Castello;VYYMnkYAAAAJ;1;1
+68;Thierry Oberdorff;bg1tIdAAAAAJ;1;1
+69;Julien Tournebize;IzPhN9AAAAAJ;1;1
+70;Jan Dick;NYXSgLwAAAAJ;1;1
+71;Moacyr Silva;HUsf20YAAAAJ;1;1
+72;Omar Baqueiro;U6k0aNwAAAAJ;1;1
+73;Florent Saucède;S4e_wW8AAAAJ;1;1
+74;Jean-Baptiste Féret;LVmWs2Ay7ukC;1;1
+75;Boris Leroy;7HzlVT4AAAAJ;1;1
+76;Sylvain Moulherat;Clp4ztgAAAAJ;1;1
