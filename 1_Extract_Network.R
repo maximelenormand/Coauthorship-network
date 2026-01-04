@@ -1,9 +1,8 @@
-# Packages
+# Load packages
 library(scholar)
 library(vecsets)
 
 # Working directory
-#wd=""
 #setwd(wd)
 
 # Load data
@@ -11,119 +10,109 @@ co=read.csv2("Coauthors.csv", stringsAsFactors=FALSE)
 nco=dim(co)[1]
 
 # Load functions
-duplipubli=function(li, threshold){
+source("utils.R")
 
-    n=length(li)
+# ================================
+# Build the collaboration network
+# ================================
 
-    res=matrix(0,n,n)
-    for(i in 1:n){
-        for(j in 1:n){
- 
-            split1=unlist(strsplit(tolower(li[i]), ""))
-            split2=unlist(strsplit(tolower(li[j]), ""))
-            res[i,j]=2*length(vintersect(split1,split2))/(nchar(tolower(li[i]))+nchar(tolower(li[j])))      
+# Initialize empty network object
+net = NULL
 
-        } 
-    }
-
-    i=1
-    test=(sum(res>threshold)>n)
-    while(test){
-
-        n=length(li)
-        indupl=as.numeric(which(res[i,]>threshold))
-        if(length(indupl)>1){
-            li=li[-indupl[-1]] 
-            res=res[-indupl[-1],-indupl[-1]]     
-        }
-      
-        i=i+1 
-        test=(sum(res>threshold)>n)
-    }
-
-    li
-
-}
-
-intersectpubli=function(li, lj, threshold){
-
-    res=matrix(0,length(li),length(lj))
-    for(ki in 1:length(li)){
-        for(kj in 1:length(lj)){
- 
-            split1=unlist(strsplit(tolower(li[ki]), ""))
-            split2=unlist(strsplit(tolower(lj[kj]), ""))
-            if(length(intersect(split1,split2))==0){
-               res[ki,kj]=0
-            }else{
-               res[ki,kj]=2*length(vintersect(split1,split2))/(nchar(tolower(li[ki]))+nchar(tolower(lj[kj])))      
-            }  
-        } 
-    }    
-
-    sum(res>threshold)
-
-}
-
-# Build network
-net=NULL
-for(i in 1:(nco-2)){
-
-    idi=co[i,3]
-    nbi=get_num_articles(idi)
+# Loop over all authors except the last two
+for(i in 1:(nco - 2)){
+  
+  # Get identifier of author i
+  idi = co[i, 3]
+  
+  # Total number of articles for author i (from external source)
+  nbi = get_num_articles(idi)
+  
+  # Pause to avoid overloading the API
+  Sys.sleep(2)
+  
+  # Retrieve publications of author i
+  li = get_publications(idi, cstart = 0, pagesize = 100, flush = FALSE)
+  
+  # Keep only publications with a known year
+  li = li[!is.na(li$year), ]
+  
+  # Extract titles as character vector
+  li = as.character(li$title)
+  
+  # Remove near-duplicate titles
+  li = duplipubli(li, threshold = 0.95)
+  
+  # Short pause between API calls
+  Sys.sleep(1)
+  
+  # Print progress: index, number of unique titles, total articles
+  print(c(i, length(li), nbi))
+  
+  # Compare author i with all following authors
+  for(j in (i + 1):nco){
+    
+    # Get identifier of author j
+    idj = co[j, 3]
+    
+    # Total number of articles for author j
+    nbj = get_num_articles(idj)
+    
+    # Pause to avoid API rate limits
     Sys.sleep(2)
-    li=get_publications(idi, cstart = 0, pagesize = 100, flush = FALSE)
-    li=li[!is.na(li$year),]
-    li=as.character(li$title)
-    #li=as.character(li$pubid)
-    #li=li[!duplicated(li)]
-    li=duplipubli(li, threshold=0.95)
+    
+    # Retrieve publications of author j
+    lj = get_publications(idj, cstart = 0, pagesize = 100, flush = FALSE)
+    
+    # Keep only publications with a known year
+    lj = lj[!is.na(lj$year), ]
+    
+    # Extract titles as character vector
+    lj = as.character(lj$title)
+    
+    # Remove near-duplicate titles
+    lj = duplipubli(lj, threshold = 0.95)
+    
+    # Short pause between API calls
     Sys.sleep(1)
     
-    #tabi=cbind(li,lit)
-
-    print(c(i,length(li),nbi))
-
-    for(j in (i+1):nco){
-
-        idj=co[j,3]
-        nbj=get_num_articles(idj)
-        Sys.sleep(2)
-        lj=get_publications(idj, cstart = 0, pagesize = 100, flush = FALSE)
-        lj=lj[!is.na(lj$year),]
-        lj=as.character(lj$title)
-        #lj=as.character(lj$pubid)
-        #lj=lj[!duplicated(lj)]
-        lj=duplipubli(lj, threshold=0.95)
-        Sys.sleep(1)
-
-        print(c("     ", j, length(lj), nbj))
-
-        #tabj=cbind(lj,ljt)
-        #int=intersect(li,lj)
-        
-        net=rbind(net, c(co[i,1], co[j,1], intersectpubli(li,lj, threshold=0.95)))
-        #net=rbind(net, c(co[i,1], co[j,1], length(intersect(li,lj))))
-        
-    }
+    # Print progress for author j
+    print(c("     ", j, length(lj), nbj))
+    
+    # Add an edge to the network:
+    # source = author i
+    # target = author j
+    # value  = number of similar publications (above threshold)
+    net = rbind(net, c(co[i, 1], co[j, 1], 
+                       intersectpubli(li, lj, threshold = 0.95))
+    )
+  }
 }
 
-net=net[!duplicated(paste0(net[,1],"_", net[,2], "_", net[,3])),]
+# Remove duplicate edges (same source, target, and value)
+net = net[!duplicated(paste0(net[,1], "_", net[,2], "_", net[,3])), ]
 
-# Clean network
-co[1,5]=get_num_articles(co[1,3])
-co[2:40,5]=net[1:39,3]
-co=co[,c(2,4,5)]
-colnames(co)=c("name","group","size")
+# ==============================
+# Clean and format network data
+# ==============================
 
-net=net[net[,3]>0,]
-colnames(net)=c("source","target","value")
+# Set node size for the first author using total number of articles
+co[1, 5] = get_num_articles(co[1, 3])
 
-# Export network
-write.csv2(co, "co.csv", row.names=FALSE, fileEncoding="UTF-8")
-write.csv2(net, "net.csv", row.names=FALSE, fileEncoding="UTF-8")
+# Set node sizes for remaining authors using the first column of edge weights
+co[2:40, 5] = net[1:39, 3]
 
+# Keep only relevant columns: name, group, and size
+co = co[, c(2, 4, 5)]
+colnames(co) = c("name", "group", "size")
 
+# Keep only edges with at least one shared publication
+net = net[net[,3] > 0, ]
+colnames(net) = c("source", "target", "value")
+
+# Export files
+write.csv2(co, "co.csv", row.names = FALSE, fileEncoding = "UTF-8")
+write.csv2(net, "net.csv", row.names = FALSE, fileEncoding = "UTF-8")
 
 
 

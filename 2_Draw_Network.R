@@ -1,9 +1,9 @@
-# Package
+# Load packages
 library(networkD3)
 
 # Working directory
-#wd=""
-#setwd(wd)
+wd="/home/maxime/mmmycloud/Web/Site/Network/2026"
+setwd(wd)
 
 # Load data
 net=read.csv2("net.csv", stringsAsFactors=FALSE)
@@ -13,7 +13,6 @@ co[1,3]=30
 
 # Color edges
 colo=rep("lightgrey",dim(net)[1])
-#colo[(dim(net)[1]-38):dim(net)[1]]="#1F77B4"
 
 # Plot
 G=forceNetwork(Links=net, Nodes=co, NodeID = "name", Group = "group",

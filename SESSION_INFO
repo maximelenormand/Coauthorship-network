@@ -1,13 +1,13 @@
 # OS #######################################
 
-Running under: Ubuntu 22.04.5 LTS
+Running under: Ubuntu 24.04.3 LTS
 
 # R ########################################
 
-R version: 4.4.2
+R version: 4.5.2
 
-networkD3 0.4
-scholar 0.2.4
+networkD3 0.4.1
+scholar 0.2.5
 vecsets 1.4
 
 ############################################

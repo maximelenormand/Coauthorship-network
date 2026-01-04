@@ -2,11 +2,12 @@
 
 ## Description
 
-This repository contains two R scripts for creating and visualizing coauthorship
-networks. It focuses on an egonetwork centered around a single scholar (me in 
-this example). The nodes of the network represent my coauthors (people with whom 
-I have published at least one paper), and the links between two coauthors are 
-proportional to the number of papers they have co-signed (if any).
+This repository contains several R scripts for creating and visualizing 
+coauthorship networks. It focuses on an egonetwork centered around a single 
+scholar (me in  this example). The nodes of the network represent my coauthors 
+(people with whom I have published at least one paper), and the links between 
+two coauthors are proportional to the number of papers they have co-signed 
+(if any).
 
 ## Scripts
 
@@ -16,11 +17,16 @@ the network. It takes as input the file ***Coauthors.csv*** (an example with my
 coauthors) and returns two files, ***co.csv*** and ***net.csv***, representing 
 the nodes and links of the coauthorship network, respectively.
 
-**2_Draw_Network** takes as input ***co.csv*** and ***net.csv*** produced by the 
+**2_Draw_Network.R** takes as input ***co.csv*** and ***net.csv*** produced by the 
 first script and relies on the package 
 [networkD3](https://cran.r-project.org/web/packages/networkD3/index.html) 
 to produce the file ***Coauthorship.html***, which can be used to interactively 
 visualize the network.
+
+**utils** contains two functions (used in **1_Extract_Network**) to identify and 
+remove near-duplicate publication titles based on character-level similarity and 
+then count how many titles are similar above a given threshold between two sets 
+of publications.
 
 If you need help, find a bug, or want to give me advice or feedback, please contact me!
 
